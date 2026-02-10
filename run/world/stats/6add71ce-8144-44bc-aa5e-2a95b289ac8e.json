@@ -1,9 +1,7 @@
 {
   "stats": {
-    "minecraft:picked_up": {
-      "minecraft:string": 2,
-      "minecraft:spider_eye": 1,
-      "minecraft:rotten_flesh": 1
+    "minecraft:killed": {
+      "minecraft:spider": 1
     },
     "minecraft:used": {
       "minecraft:snow": 2,
@@ -13,23 +11,26 @@
       "minecraft:ice": 3
     },
     "minecraft:custom": {
-      "minecraft:time_since_rest": 69159,
-      "minecraft:walk_one_cm": 17973,
-      "minecraft:leave_game": 105,
+      "minecraft:time_since_rest": 91286,
+      "minecraft:walk_one_cm": 19542,
+      "minecraft:leave_game": 113,
       "minecraft:mob_kills": 1,
-      "minecraft:play_time": 188971,
+      "minecraft:play_time": 211098,
       "minecraft:damage_dealt": 276,
-      "minecraft:jump": 618,
-      "minecraft:time_since_death": 69137,
-      "minecraft:sprint_one_cm": 41790,
-      "minecraft:total_world_time": 188971,
-      "minecraft:fly_one_cm": 150968,
+      "minecraft:jump": 660,
+      "minecraft:time_since_death": 91264,
+      "minecraft:sprint_one_cm": 43422,
+      "minecraft:total_world_time": 211098,
+      "minecraft:fly_one_cm": 164846,
       "minecraft:crouch_one_cm": 273,
+      "minecraft:walk_on_water_one_cm": 121,
       "minecraft:sneak_time": 73,
       "minecraft:deaths": 1
     },
-    "minecraft:killed": {
-      "minecraft:spider": 1
+    "minecraft:picked_up": {
+      "minecraft:string": 2,
+      "minecraft:spider_eye": 1,
+      "minecraft:rotten_flesh": 1
     }
   },
   "DataVersion": 4671

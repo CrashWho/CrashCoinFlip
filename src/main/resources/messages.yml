@@ -2,42 +2,53 @@ gui:
   title: "ᴄᴏɪɴꜰʟɪᴘ"
   items:
     back:
+      slot: 0
       material: ARROW
-      displayname: "<red>Pagina Precedente"
+      displayname: "<red>ᴘʀᴇᴠɪᴏᴜꜱ ᴘᴀɢᴇ"
+      custom-model-data: 0
       item-model: ""
+      lore:
+        - ""
     next:
+      slot: 8
       material: ARROW
-      displayname: "<green>Pagina Successiva"
+      displayname: "<green>ɴᴇxᴛ ᴘᴀɢᴇ"
+      custom-model-data: 0
       item-model: ""
+      lore:
+        - ""
     create-item:
+      slot: 4
       material: ANVIL
-      displayname: "<green>Crea coinflip"
+      displayname: "<green>ɴᴇᴡ ʙᴇᴛ"
+      custom-model-data: 0
       item-model: ""
       lore:
         - ""
     coinflip:
       material: PLAYER_HEAD
       displayname: "<#0077B6>{player}"
+      custom-model-data: 0
       item-model: ""
       lore:
         - ""
-        - "<white>Puntata: <#0077B6>{amount}"
+        - "<white>ʙᴇᴛ: <#0077B6>{amount}"
         - ""
-        - "<gray>Tasto-Sinistro <white>Gioca"
+        - "<gray>ʟᴇꜰᴛ-ᴄʟɪᴄᴋ <white>ᴛᴏ ᴘʟᴀʏ"
 msg:
-  cf: "<white>Scrivi in chat l'importo da scommettere.<newline><gray>(Scrivi 'annulla' per cancellare)"
+  cf: "<white>ᴡʀɪᴛᴇ ᴛʜᴇ ᴀᴍᴏᴜɴᴛ ɪɴ ᴄʜᴀᴛ.<newline><gray>(ᴡʀɪᴛᴇ 'ᴄᴀɴᴄᴇʟ' ᴛᴏ ᴄᴀɴᴄᴇʟ)"
 
 messages:
   prefix: "<gradient:#0077B6:#CAF0F8:#0077B6><b>ᴄᴏɪɴꜰʟɪᴘ</b></gradient> <dark_gray>»<reset> "
-  reload: "<white>Configurazione ricaricata."
-  console: "<red>Questo comando non può essere eseguito dalla console."
-  create: "<white>Hai creato una <gradient:#0077B6:#CAF0F8:#0077B6>scommessa</gradient> <white>di <gradient:#0077B6:#CAF0F8:#0077B6>{amount}</gradient>."
-  invalid-amount: "<red>Importo non valido. Assicurati di inserire un numero positivo."
-  not-enough-money: "<red>Non hai abbastanza soldi per scommettere!"
-  max-bet: "<red>Non puoi scommettere più di <gradient:#0077B6:#CAF0F8:#0077B6><b>{max}</b></gradient>."
-  already: "<red>Hai già un coinflip in sospeso!"
-  self: "<red>Non puoi accettare il tuo stesso coinflip!"
-  cancel: "<white>Hai annullato il tuo coinflip!"
-  error-cancel: "<red>Non hai coinflip in sospeso!"
-  win: "<white>Hai vinto il coinflip!"
-  lose: "<white>Hai perso il coinflip!"
+  reload: "<white>Config reloaded."
+  console: "<red>Only a player can execute this command."
+  create: "<white>You have created a <gradient:#0077B6:#CAF0F8:#0077B6>bet</gradient> <white>of <gradient:#0077B6:#CAF0F8:#0077B6>{amount}</gradient>."
+  invalid-amount: "<red>Invalid amount. Insert a poisitive integer number."
+  not-enough-money: "<red>Not enough money!"
+  max-bet: "<red>Max bet: <gradient:#0077B6:#CAF0F8:#0077B6><b>{max}</b></gradient>."
+  already: "<red>You already have a pending coinflip!"
+  self: "<red>You can't accept your own coinflip!"
+  cancel: "<white>You have cancelled your coinflip!"
+  error-cancel: "<red>No coinflip pending!"
+  win: "<white>You won the coinflip!"
+  lose: "<white>Hai lost the coinflip!"

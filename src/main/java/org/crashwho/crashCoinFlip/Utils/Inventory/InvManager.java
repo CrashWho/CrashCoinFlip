@@ -4,6 +4,9 @@ import com.github.stefvanschie.inventoryframework.gui.GuiItem;
 import com.github.stefvanschie.inventoryframework.gui.type.ChestGui;
 import com.github.stefvanschie.inventoryframework.pane.PaginatedPane;
 import com.github.stefvanschie.inventoryframework.pane.StaticPane;
+import com.github.stefvanschie.inventoryframework.pane.util.Slot;
+import io.papermc.paper.datacomponent.DataComponentTypes;
+import io.papermc.paper.datacomponent.item.CustomModelData;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.*;
@@ -17,7 +20,6 @@ import org.crashwho.crashCoinFlip.Utils.Manager.FlipsManager;
 import org.crashwho.crashCoinFlip.Utils.Messages.ChatFormat;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class InvManager {
 
@@ -45,8 +47,13 @@ public class InvManager {
     }
 
     private static void addNavigation(CrashCoinFlip crashCoinFlip) {
-        int rows = crashCoinFlip.getConfig().getInt("settings.gui.rows");
-        StaticPane navPane = new StaticPane(0, rows - 1, 9, 1);
+
+        int rows = crashCoinFlip.getConfig().getInt("settings.navbar-gui.rows");
+        int start_column = crashCoinFlip.getConfig().getInt("settings.navbar-gui.start-column");
+        int lenght = crashCoinFlip.getConfig().getInt("settings.navbar-gui.length");
+        int use_row = crashCoinFlip.getConfig().getInt("settings.navbar-gui.items-row");
+
+        StaticPane navPane = new StaticPane(start_column, rows, lenght, use_row);
 
         Material back_material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.back.material"));
         Material next_material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.next.material"));
@@ -55,16 +62,25 @@ public class InvManager {
         ItemMeta backMeta = backItem.getItemMeta();
         backMeta.displayName(ChatFormat.format("<italic:false>" + crashCoinFlip.getMessages().getData().getString("gui.items.back.displayname")));
         backMeta.setItemModel(NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.back.item-model")));
+
+        List<String> backlore = crashCoinFlip.getMessages().getData().getStringList("gui.items.back.lore");
+
+        backMeta.lore(createLore(backlore));
+
         backItem.setItemMeta(backMeta);
+
+        addCustomModelData(crashCoinFlip, backItem, "gui.items.back.custom-model-data");
+
+        int backSlot = crashCoinFlip.getMessages().getData().getInt("gui.items.back.slot");
 
         navPane.addItem(new GuiItem(backItem, event -> {
             if (pane.getPage() > 0) {
                 pane.setPage(pane.getPage() - 1);
                 gui.update();
             }
-        }), 0, 0);
+        }), Slot.fromIndex(backSlot));
 
-        int createSlot = crashCoinFlip.getConfig().getInt("gui.create-item.slot", 4);
+        int createSlot = crashCoinFlip.getMessages().getData().getInt("gui.items.create-item.slot", 4);
 
         navPane.addItem(new GuiItem(getCreationItem(crashCoinFlip), event -> {
             Player player = (Player) event.getWhoClicked();
@@ -74,37 +90,32 @@ public class InvManager {
             player.getPlayer().sendMessage(ChatFormat.prefixFormat(crashCoinFlip.getMessages().getData().getString("msg.cf")));
 
 
-        }), createSlot, 0);
+        }), Slot.fromIndex(createSlot));
 
 
         ItemStack nextItem = new ItemStack(next_material);
         ItemMeta nextMeta = nextItem.getItemMeta();
         nextMeta.displayName(ChatFormat.format("<italic:false>" + crashCoinFlip.getMessages().getData().getString("gui.items.next.displayname")));
         nextMeta.setItemModel(NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.next.item-model")));
+
+        List<String> nextlore = crashCoinFlip.getMessages().getData().getStringList("gui.items.next.lore");
+
+        nextMeta.lore(createLore(nextlore));
+        addCustomModelData(crashCoinFlip, backItem, "gui.items.next.custom-model-data");
         nextItem.setItemMeta(nextMeta);
+
+
+        int nextSlot = crashCoinFlip.getMessages().getData().getInt("gui.items.next.slot");
+
 
         navPane.addItem(new GuiItem(nextItem, event -> {
             if (pane.getPage() < pane.getPages() - 1) {
                 pane.setPage(pane.getPage() + 1);
                 gui.update();
             }
-        }), 8, 0);
+        }), Slot.fromIndex(nextSlot));
 
         gui.addPane(navPane);
-    }
-
-    private static GuiItem createAddButton(long amount, Material mat, AtomicLong currentBet, Runnable updateTask) {
-        ItemStack item = new ItemStack(mat);
-        ItemMeta meta = item.getItemMeta();
-        meta.displayName(ChatFormat.format("&a&l+" + CrashCoinFlip.getEconomy().format(amount)));
-        item.setItemMeta(meta);
-
-        return new GuiItem(item, event -> {
-            Player p = (Player) event.getWhoClicked();
-            currentBet.addAndGet(amount); // Aggiunge i soldi
-            p.playSound(p.getLocation(), Sound.UI_BUTTON_CLICK, 1f, 1f);
-            updateTask.run(); // Aggiorna la GUI
-        });
     }
 
     public static void openGui(Player player) {
@@ -127,6 +138,26 @@ public class InvManager {
 
     }
 
+    private static List<Component> createLore(List<String> lore) {
+
+        List<Component> loreComponents = new ArrayList<>();
+        lore.forEach(line -> loreComponents.add(ChatFormat.format("<italic:false>" + line)));
+
+
+        return loreComponents;
+    }
+
+    private static void addCustomModelData(CrashCoinFlip crashCoinFlip, ItemStack stack, String path) {
+
+        float custom_model_data = crashCoinFlip.getMessages().getData().getInt(path);
+
+        stack.setData(DataComponentTypes.CUSTOM_MODEL_DATA,
+                CustomModelData.customModelData()
+                        .addFloat(custom_model_data)
+                        .build());
+
+    }
+
     private static ItemStack getCreationItem(CrashCoinFlip crashCoinFlip) {
 
         String matName = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.material");
@@ -142,12 +173,10 @@ public class InvManager {
 
         meta.displayName(ChatFormat.format("<italic:false>" + name));
 
-        List<Component> loreComponents = new ArrayList<>();
-        for (String line : lore) {
-            loreComponents.add(ChatFormat.format("<italic:false>" + line));
-        }
-        meta.lore(loreComponents);
+        meta.lore(createLore(lore));
         meta.setItemModel(NamespacedKey.fromString(item_model));
+
+        addCustomModelData(crashCoinFlip, item, "gui.items.create-item.custom-model-data");
 
         item.setItemMeta(meta);
         return item;
@@ -230,6 +259,7 @@ public class InvManager {
                             .replace("{amount}", amount)))
                     .toList();
 
+        addCustomModelData(crashCoinFlip, item, "gui.items.coinflip.custom-model-data");
 
         if (item.getItemMeta() instanceof SkullMeta meta) {
             meta.setOwningPlayer(player);
@@ -237,7 +267,6 @@ public class InvManager {
             meta.setItemModel(NamespacedKey.fromString(item_model));
             meta.lore(lore_components);
             item.setItemMeta(meta);
-
             return item;
         } else {
             ItemMeta meta = item.getItemMeta();
