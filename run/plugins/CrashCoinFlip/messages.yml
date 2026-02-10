@@ -1,0 +1,54 @@
+gui:
+  title: "ᴄᴏɪɴꜰʟɪᴘ"
+  items:
+    back:
+      slot: 0
+      material: ARROW
+      displayname: "<red>ᴘʀᴇᴠɪᴏᴜꜱ ᴘᴀɢᴇ"
+      custom-model-data: 0
+      item-model: ""
+      lore:
+        - ""
+    next:
+      slot: 8
+      material: ARROW
+      displayname: "<green>ɴᴇxᴛ ᴘᴀɢᴇ"
+      custom-model-data: 0
+      item-model: ""
+      lore:
+        - ""
+    create-item:
+      slot: 4
+      material: ANVIL
+      displayname: "<green>ɴᴇᴡ ʙᴇᴛ"
+      custom-model-data: 0
+      item-model: ""
+      lore:
+        - ""
+    coinflip:
+      material: PLAYER_HEAD
+      displayname: "<#0077B6>{player}"
+      custom-model-data: 0
+      item-model: ""
+      lore:
+        - ""
+        - "<white>ʙᴇᴛ: <#0077B6>{amount}"
+        - ""
+        - "<gray>ʟᴇꜰᴛ-ᴄʟɪᴄᴋ <white>ᴛᴏ ᴘʟᴀʏ"
+msg:
+  cf: "<white>ᴡʀɪᴛᴇ ᴛʜᴇ ᴀᴍᴏᴜɴᴛ ɪɴ ᴄʜᴀᴛ.<newline><gray>(ᴡʀɪᴛᴇ 'ᴄᴀɴᴄᴇʟ' ᴛᴏ ᴄᴀɴᴄᴇʟ)"
+
+messages:
+  prefix: "<gradient:#0077B6:#CAF0F8:#0077B6><b>ᴄᴏɪɴꜰʟɪᴘ</b></gradient> <dark_gray>»<reset> "
+  reload: "<white>Config reloaded."
+  console: "<red>Only a player can execute this command."
+  create: "<white>You have created a <gradient:#0077B6:#CAF0F8:#0077B6>bet</gradient> <white>of <gradient:#0077B6:#CAF0F8:#0077B6>{amount}</gradient>."
+  invalid-amount: "<red>Invalid amount. Insert a poisitive integer number."
+  not-enough-money: "<red>Not enough money!"
+  max-bet: "<red>Max bet: <gradient:#0077B6:#CAF0F8:#0077B6><b>{max}</b></gradient>."
+  already: "<red>You already have a pending coinflip!"
+  self: "<red>You can't accept your own coinflip!"
+  cancel: "<white>You have cancelled your coinflip!"
+  error-cancel: "<red>No coinflip pending!"
+  win: "<white>You won the coinflip!"
+  lose: "<white>Hai lost the coinflip!"

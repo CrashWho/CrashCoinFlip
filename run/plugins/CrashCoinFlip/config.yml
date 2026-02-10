@@ -1,0 +1,29 @@
+#   ___ ___ __ _ ___| |__
+#  / __| '__/ _` / __| '_ \
+# | (__| | | (_| \__ \ | | |
+#  \___|_|  \__,_|___/_| |_|
+#   ___ ___ (_)_ __ | _| (_)_ __
+#  / __/ _ \| | '_ \| |_| | '_ \
+# | (_| (_) | | | | |  _| | |_) |
+#  \___\___/|_|_| |_|_| |_| .__/
+#
+#REMEMBER: if a player does Right-Click on his own bet, he removes his coinflip
+
+#If console-log-on-quit is enabled, the plugin will send a message
+#to the console when a player leaves the server with a pending coinflip.
+info:
+  console-log-on-quit: false
+settings:
+  gui:
+    rows: 5 #Total rows of the GUI (double chest = 6)
+    start-row: 1 #This is the row where items start generating. First index: 0
+    start-column: 1 #This is the column where items start generating. First index: 0
+    length: 7 #This is the max slots before going to a new line First: 0, Last: 8
+    items-row: 2 #How many "rows" are used for the items
+  navbar-gui: #Here we have the same var of before, but for the navigation bar
+    start_column: 0
+    rows: 4
+    length: 9
+    items-row: 1
+  max-bet: 1000000000 #Max amount of money a player can bet.
+  cancel-word: "cancel" #Word used to cancel the bet when using the GUI.
