@@ -1,0 +1,13 @@
+info:
+  console-log-on-quit: false
+settings:
+  gui:
+    rows: 5
+    start-row: 1
+    start-column: 1
+    length: 7
+    items-row: 2
+    create-item:
+      slot: 4
+  max-bet: 1000000000
+  cancel-word: "annulla"

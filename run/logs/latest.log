@@ -1,0 +1,133 @@
+[19:26:09] [ServerMain/INFO]: [bootstrap] Running Java 23 (Java HotSpot(TM) 64-Bit Server VM 23.0.1+11-39; Oracle Corporation null) on Windows 11 10.0 (amd64)
+[19:26:09] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.11-69-main@94d0c97 (2025-12-30T20:33:30Z) for Minecraft 1.21.11
+[19:26:10] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[19:26:11] [ServerMain/INFO]: [PluginInitializerManager] Initialized 6 plugins
+[19:26:11] [ServerMain/INFO]: [PluginInitializerManager] Paper plugins (1):
+ - CrashCoinFlip (1.0)
+[19:26:11] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (5):
+ - DonutChatHover (1.2), LuckPerms (5.5.32), PlayerPoints (3.3.3), ProtocolLib (5.4.1-SNAPSHOT-f606cc9), Vault (1.7.3-b131)
+[19:26:17] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[19:26:19] [ServerMain/INFO]: Loaded 1470 recipes
+[19:26:19] [ServerMain/INFO]: Loaded 1584 advancements
+[19:26:19] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[19:26:19] [ServerMain/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 331,3ms
+[19:26:19] [Server thread/INFO]: Starting minecraft server version 1.21.11
+[19:26:19] [Server thread/INFO]: Loading properties
+[19:26:19] [Server thread/INFO]: This server is running Paper version 1.21.11-69-main@94d0c97 (2025-12-30T20:33:30Z) (Implementing API version 1.21.11-R0.1-SNAPSHOT)
+[19:26:19] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[19:26:19] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[19:26:19] [Server thread/INFO]: Using 4 threads for Netty based IO
+[19:26:20] [Server thread/INFO]: [MoonriseCommon] Paper is using 3 worker threads, 1 I/O threads
+[19:26:20] [Server thread/INFO]: Default game type: SURVIVAL
+[19:26:20] [Server thread/INFO]: Generating keypair
+[19:26:20] [Server thread/INFO]: Starting Minecraft server on *:25565
+[19:26:20] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[19:26:20] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[19:26:20] [Server thread/INFO]: [SpigotLibraryLoader] [PlayerPoints] Loading 2 libraries... please wait
+[19:26:21] [Server thread/INFO]: [SpigotLibraryLoader] [PlayerPoints] Loaded library C:\Users\Fabio\IdeaProjects\CrashCoinFlip\run\libraries\com\mysql\mysql-connector-j\9.1.0\mysql-connector-j-9.1.0.jar
+[19:26:21] [Server thread/INFO]: [SpigotLibraryLoader] [PlayerPoints] Loaded library C:\Users\Fabio\IdeaProjects\CrashCoinFlip\run\libraries\com\google\protobuf\protobuf-java\4.26.1\protobuf-java-4.26.1.jar
+[19:26:21] [Server thread/INFO]: [SpigotLibraryLoader] [PlayerPoints] Loaded library C:\Users\Fabio\IdeaProjects\CrashCoinFlip\run\libraries\org\xerial\sqlite-jdbc\3.46.0.0\sqlite-jdbc-3.46.0.0.jar
+[19:26:21] [Server thread/INFO]: [SpigotLibraryLoader] [PlayerPoints] Loaded library C:\Users\Fabio\IdeaProjects\CrashCoinFlip\run\libraries\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar
+[19:26:21] [Server thread/INFO]: [LuckPerms] Loading server plugin LuckPerms v5.5.32
+[19:26:23] [Server thread/INFO]: [LuckPerms] Loading configuration...
+[19:26:23] [Server thread/INFO]: [ProtocolLib] Loading server plugin ProtocolLib v5.4.1-SNAPSHOT-f606cc9
+[19:26:24] [Server thread/INFO]: [Vault] Loading server plugin Vault v1.7.3-b131
+[19:26:24] [Server thread/INFO]: [CrashCoinFlip] Loading server plugin CrashCoinFlip v1.0
+[19:26:24] [Server thread/INFO]: [PlayerPoints] Loading server plugin PlayerPoints v3.3.3
+[19:26:24] [Server thread/INFO]: [PlayerPoints] Initializing using RoseGarden v1.5.3
+[19:26:24] [Server thread/INFO]: [DonutChatHover] Loading server plugin DonutChatHover v1.2
+[19:26:24] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[19:26:24] [Server thread/INFO]: [LuckPerms] Enabling LuckPerms v5.5.32
+[19:26:24] [Server thread/INFO]:         __    
+[19:26:24] [Server thread/INFO]:   |    |__)   LuckPerms v5.5.32
+[19:26:24] [Server thread/INFO]:   |___ |      Running on Bukkit - Paper
+[19:26:24] [Server thread/INFO]: 
+[19:26:24] [Server thread/INFO]: [LuckPerms] Loading storage provider... [H2]
+[19:26:25] [Server thread/INFO]: [LuckPerms] Loading internal permission managers...
+[19:26:25] [Server thread/INFO]: [LuckPerms] Performing initial data load...
+[19:26:25] [Server thread/INFO]: [LuckPerms] Successfully enabled. (took 1144ms)
+[19:26:25] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v5.4.1-SNAPSHOT-f606cc9
+[19:26:25] [Server thread/INFO]: [Vault] Enabling Vault v1.7.3-b131
+[19:26:25] [Server thread/INFO]: [Vault] [Permission] SuperPermissions loaded as backup permission system.
+[19:26:25] [Server thread/INFO]: [Vault] Enabled Version 1.7.3-b131
+[19:26:25] [Server thread/INFO]: [LuckPerms] Registered Vault permission & chat hook.
+[19:26:25] [Server thread/INFO]: [PlayerPoints] Enabling PlayerPoints v3.3.3
+[19:26:25] [Server thread/INFO]: [PlayerPoints] Data handler connected using SQLite.
+[19:26:25] [Server thread/INFO]: [PlayerPoints] Vault enabled with priority set to Low
+[19:26:25] [Server thread/INFO]: Preparing level "world"
+[19:26:26] [Server thread/INFO]: Loading 0 persistent chunks for world 'minecraft:overworld'...
+[19:26:26] [Server thread/INFO]: Prepared spawn area in 2 ms
+[19:26:26] [Server thread/INFO]: Loading 0 persistent chunks for world 'minecraft:the_nether'...
+[19:26:26] [Server thread/INFO]: Prepared spawn area in 1 ms
+[19:26:26] [Server thread/INFO]: Loading 0 persistent chunks for world 'minecraft:the_end'...
+[19:26:26] [Server thread/INFO]: Prepared spawn area in 0 ms
+[19:26:26] [Server thread/INFO]: Done preparing level "world" (0.569s)
+[19:26:26] [Server thread/INFO]: [CrashCoinFlip] Enabling CrashCoinFlip v1.0
+[19:26:26] [Server thread/INFO]: [DonutChatHover] Enabling DonutChatHover v1.2
+[19:26:26] [Server thread/INFO]: [DonutChatHover] DonutChatHover has been enabled!
+[19:26:27] [Server thread/INFO]: [spark] Starting background profiler...
+[19:26:27] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows11/amd64), so the built-in Java engine will be used instead.
+[19:26:27] [Server thread/INFO]: Running delayed init tasks
+[19:26:27] [Server thread/INFO]: Done (18.958s)! For help, type "help"
+[19:26:27] [Craft Scheduler Thread - 5 - Vault/INFO]: [Vault] Checking for Updates ... 
+[19:26:27] [Craft Scheduler Thread - 5 - Vault/INFO]: [Vault] No new version available
+[19:26:30] [User Authenticator #0/INFO]: UUID of player CrashWho is 6add71ce-8144-44bc-aa5e-2a95b289ac8e
+[19:26:30] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LuckPerms, ProtocolLib]
+[19:26:32] [Server thread/INFO]: CrashWho joined the game
+[19:26:32] [Server thread/INFO]: CrashWho[/127.0.0.1:61962] logged in with entity id 1 at ([world]55.5446399191137, 67.0, -91.16750490095228)
+[19:26:43] [Server thread/INFO]: CrashWho issued server command: /cf
+[19:26:44] [Server thread/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[19:26:45] [Netty NIO IO #1/WARN]: Failed to update secure chat state for CrashWho: 'Chat disabled due to missing profile public key. Please try reconnecting.'
+[19:26:48] [Server thread/INFO]: CrashWho issued server command: /pl
+[19:26:50] [Server thread/INFO]: CrashWho issued server command: /version DonutChatHover
+[19:26:55] [Server thread/INFO]: CrashWho issued server command: /cf cancel
+[19:26:56] [Server thread/INFO]: CrashWho issued server command: /cf
+[19:26:59] [Server thread/INFO]: CrashWho issued server command: /cf
+[19:27:03] [Server thread/INFO]: CrashWho issued server command: /cf
+[19:27:08] [Server thread/INFO]: CrashWho issued server command: /cf
+[19:27:13] [Server thread/INFO]: CrashWho issued server command: /stop
+[19:27:13] [Server thread/INFO]: [CrashWho: Stopping the server]
+[19:27:13] [Server thread/INFO]: Stopping server
+[19:27:13] [Server thread/INFO]: [DonutChatHover] Disabling DonutChatHover v1.2
+[19:27:13] [Server thread/INFO]: [DonutChatHover] DonutChatHover has been disabled!
+[19:27:13] [Server thread/INFO]: [PlayerPoints] Disabling PlayerPoints v3.3.3
+[19:27:13] [Server thread/INFO]: [CrashCoinFlip] Disabling CrashCoinFlip v1.0
+[19:27:13] [Server thread/INFO]: [Vault] Disabling Vault v1.7.3-b131
+[19:27:13] [Server thread/INFO]: [ProtocolLib] Disabling ProtocolLib v5.4.1-SNAPSHOT-f606cc9
+[19:27:13] [Server thread/INFO]: [LuckPerms] Disabling LuckPerms v5.5.32
+[19:27:13] [Server thread/INFO]: [LuckPerms] Starting shutdown process...
+[19:27:13] [Server thread/INFO]: [LuckPerms] Closing storage...
+[19:27:13] [Server thread/INFO]: [LuckPerms] Goodbye!
+[19:27:13] [Server thread/INFO]: Saving players
+[19:27:13] [Server thread/INFO]: CrashWho lost connection: Server closed
+[19:27:13] [Server thread/INFO]: CrashWho left the game
+[19:27:13] [Server thread/INFO]: Saving worlds
+[19:27:13] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[19:27:13] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[19:27:13] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[19:27:13] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Saved 675 block chunks, 675 entity chunks, 0 poi chunks in world 'world' in 0,67s
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world'
+[19:27:14] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'world_nether' in 0,00s
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world_nether'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world_nether'
+[19:27:14] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'world_the_end' in 0,00s
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'world_the_end'
+[19:27:14] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'world_the_end'
+[19:27:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[19:27:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[19:27:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[19:27:14] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[19:27:14] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[19:27:14] [Server thread/INFO]: All RegionFile I/O tasks to complete
+[19:27:14] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[19:27:14] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

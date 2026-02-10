@@ -1,0 +1,13 @@
+name: CrashCoinFlip
+version: '1.0'
+main: org.crashwho.crashCoinFlip.CrashCoinFlip
+api-version: '1.21'
+authors: [ CrashWho ]
+dependencies:
+  server:
+    Vault:
+      load: BEFORE
+      required: true
+    ProtocolLib:
+      load: BEFORE
+      required: true

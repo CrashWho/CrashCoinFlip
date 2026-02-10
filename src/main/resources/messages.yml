@@ -1,0 +1,43 @@
+gui:
+  title: "ᴄᴏɪɴꜰʟɪᴘ"
+  items:
+    back:
+      material: ARROW
+      displayname: "<red>Pagina Precedente"
+      item-model: ""
+    next:
+      material: ARROW
+      displayname: "<green>Pagina Successiva"
+      item-model: ""
+    create-item:
+      material: ANVIL
+      displayname: "<green>Crea coinflip"
+      item-model: ""
+      lore:
+        - ""
+    coinflip:
+      material: PLAYER_HEAD
+      displayname: "<#0077B6>{player}"
+      item-model: ""
+      lore:
+        - ""
+        - "<white>Puntata: <#0077B6>{amount}"
+        - ""
+        - "<gray>Tasto-Sinistro <white>Gioca"
+msg:
+  cf: "<white>Scrivi in chat l'importo da scommettere.<newline><gray>(Scrivi 'annulla' per cancellare)"
+
+messages:
+  prefix: "<gradient:#0077B6:#CAF0F8:#0077B6><b>ᴄᴏɪɴꜰʟɪᴘ</b></gradient> <dark_gray>»<reset> "
+  reload: "<white>Configurazione ricaricata."
+  console: "<red>Questo comando non può essere eseguito dalla console."
+  create: "<white>Hai creato una <gradient:#0077B6:#CAF0F8:#0077B6>scommessa</gradient> <white>di <gradient:#0077B6:#CAF0F8:#0077B6>{amount}</gradient>."
+  invalid-amount: "<red>Importo non valido. Assicurati di inserire un numero positivo."
+  not-enough-money: "<red>Non hai abbastanza soldi per scommettere!"
+  max-bet: "<red>Non puoi scommettere più di <gradient:#0077B6:#CAF0F8:#0077B6><b>{max}</b></gradient>."
+  already: "<red>Hai già un coinflip in sospeso!"
+  self: "<red>Non puoi accettare il tuo stesso coinflip!"
+  cancel: "<white>Hai annullato il tuo coinflip!"
+  error-cancel: "<red>Non hai coinflip in sospeso!"
+  win: "<white>Hai vinto il coinflip!"
+  lose: "<white>Hai perso il coinflip!"

@@ -1,0 +1,40 @@
+# DonutChatHover By ShyamStudio
+
+# Chat Format
+# Placeholders:
+# {message} - the chat message
+# {name} - the player's name
+# {displayname} - the player's display name / nickname
+# {world} - the world name of the player's current world
+# {prefix} - the player's prefix from LuckPerms
+# {suffix} - the player's suffix from LuckPerms
+# {username-color} - the player's or the group's username color meta
+# {message-color} - the player's or the group's message color meta
+#
+# Note: Always use &r to reset color after the name to prevent color bleeding into message
+chat-format: "{prefix}{name}&r: {message}"
+
+# Group-specific formats (if needed)
+group-formats:
+# example: "{prefix}{name}&r: {message}"
+# admin: "&c[ADMIN] {name}&r: {message}"
+
+# Hover text when hovering over a player's name in chat
+hover-text: |
+  §7%player%
+  §7------------
+  §a$ §fMoney: §a%vault_eco_balance_formatted%
+  §c🗡 §fKills: §c%kills%
+  §e⌚ §fPlaytime: §e%playtime%
+  §4☠ §fDeaths: §4%deaths%
+  §7------------
+  §7Click To Msg!
+
+# The command that will be executed when clicking on a player's name
+# Use %player% as a placeholder for the player's name
+click-command: "/msg %player%"
+
+# Messages
+messages:
+  reload-success: "&aDonutChatHover configuration reloaded successfully!"
+  no-permission: "&cYou don't have permission to use this command!"
