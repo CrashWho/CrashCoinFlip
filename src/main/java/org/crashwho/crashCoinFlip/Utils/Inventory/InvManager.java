@@ -170,7 +170,7 @@ public class InvManager {
         String name = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.displayname");
         String item_model = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.item-model", "coinflip");
         List<String> lore = crashCoinFlip.getMessages().getData().getStringList("gui.items.create-item.lore");
-        float data = crashCoinFlip.getMessages().getData().getInt("gui.items.custom-model-data");
+        float data = crashCoinFlip.getMessages().getData().getInt("gui.items.create-item.custom-model-data");
 
 
         return itemCreation(Material.valueOf(matName), name, createLore(lore), NamespacedKey.fromString(item_model), data);
