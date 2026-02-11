@@ -65,7 +65,7 @@ public class InputListener {
 
         if (cleanMessage.equalsIgnoreCase(crashCoinFlip.getConfig().getString("settings.cancel-word"))) {
             removePlayer(player);
-            player.sendMessage(ChatFormat.prefixFormat("&cOperazione annullata."));
+            player.sendMessage(ChatFormat.prefixFormat(crashCoinFlip.getMessages().getData().getString("messages.cancel")));
             return;
         }
 
@@ -73,7 +73,7 @@ public class InputListener {
         double amount = ChatFormat.parseAmount(cleanMessage);
 
         if (amount <= 0) {
-            player.sendMessage(ChatFormat.prefixFormat("&cImporto non valido! Riprova o scrivi 'annulla'."));
+            player.sendMessage(ChatFormat.prefixFormat(crashCoinFlip.getMessages().getData().getString("messages.invalid-amount")));
             return;
         }
 
