@@ -7,6 +7,7 @@ import com.github.stefvanschie.inventoryframework.pane.StaticPane;
 import com.github.stefvanschie.inventoryframework.pane.util.Slot;
 import io.papermc.paper.datacomponent.DataComponentTypes;
 import io.papermc.paper.datacomponent.item.CustomModelData;
+import io.papermc.paper.datacomponent.item.ItemLore;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.*;
@@ -57,19 +58,13 @@ public class InvManager {
 
         Material back_material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.back.material"));
         Material next_material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.next.material"));
+        String backDisplayName = crashCoinFlip.getMessages().getData().getString("gui.items.back.displayname");
+        NamespacedKey backModel = NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.back.item-model", "coinflip"));
+        float backCustomModelData = crashCoinFlip.getMessages().getData().getInt("gui.items.back.custom-model-data");
+        List<String> backLore = crashCoinFlip.getMessages().getData().getStringList("gui.items.back.lore");
 
-        ItemStack backItem = new ItemStack(back_material);
-        ItemMeta backMeta = backItem.getItemMeta();
-        backMeta.displayName(ChatFormat.format("<italic:false>" + crashCoinFlip.getMessages().getData().getString("gui.items.back.displayname")));
-        backMeta.setItemModel(NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.back.item-model")));
 
-        List<String> backlore = crashCoinFlip.getMessages().getData().getStringList("gui.items.back.lore");
-
-        backMeta.lore(createLore(backlore));
-
-        backItem.setItemMeta(backMeta);
-
-        addCustomModelData(crashCoinFlip, backItem, "gui.items.back.custom-model-data");
+        ItemStack backItem = itemCreation(back_material, backDisplayName, createLore(backLore), backModel, backCustomModelData);
 
         int backSlot = crashCoinFlip.getMessages().getData().getInt("gui.items.back.slot");
 
@@ -93,16 +88,12 @@ public class InvManager {
         }), Slot.fromIndex(createSlot));
 
 
-        ItemStack nextItem = new ItemStack(next_material);
-        ItemMeta nextMeta = nextItem.getItemMeta();
-        nextMeta.displayName(ChatFormat.format("<italic:false>" + crashCoinFlip.getMessages().getData().getString("gui.items.next.displayname")));
-        nextMeta.setItemModel(NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.next.item-model")));
+        String nextDisplayName = crashCoinFlip.getMessages().getData().getString("gui.items.next.displayname");
+        List<String> nextLore = crashCoinFlip.getMessages().getData().getStringList("gui.items.next.lore");
+        NamespacedKey nextModel = NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.next.item-model", "coinflip"));
+        float nextCustomModelData = crashCoinFlip.getMessages().getData().getInt("gui.items.next.custom-model-data");
 
-        List<String> nextlore = crashCoinFlip.getMessages().getData().getStringList("gui.items.next.lore");
-
-        nextMeta.lore(createLore(nextlore));
-        addCustomModelData(crashCoinFlip, backItem, "gui.items.next.custom-model-data");
-        nextItem.setItemMeta(nextMeta);
+        ItemStack nextItem = itemCreation(next_material, nextDisplayName, createLore(nextLore), nextModel, nextCustomModelData);
 
 
         int nextSlot = crashCoinFlip.getMessages().getData().getInt("gui.items.next.slot");
@@ -147,39 +138,42 @@ public class InvManager {
         return loreComponents;
     }
 
-    private static void addCustomModelData(CrashCoinFlip crashCoinFlip, ItemStack stack, String path) {
+    private static ItemStack itemCreation(Material material, String displayname, List<Component> lore, NamespacedKey key, float data) {
 
-        float custom_model_data = crashCoinFlip.getMessages().getData().getInt(path);
+        ItemStack item = new ItemStack(material);
 
-        stack.setData(DataComponentTypes.CUSTOM_MODEL_DATA,
-                CustomModelData.customModelData()
-                        .addFloat(custom_model_data)
-                        .build());
+        if (displayname != null)
+            item.setData(DataComponentTypes.CUSTOM_NAME, ChatFormat.format("<italic:false>" + displayname));
 
+        if (lore != null && !lore.isEmpty())
+            item.setData(DataComponentTypes.LORE, ItemLore.lore(lore));
+
+        if (key != null)
+            item.setData(DataComponentTypes.ITEM_MODEL, key);
+
+        if (key != null)
+            item.setData(DataComponentTypes.ITEM_MODEL, key);
+
+        if (data != 0) {
+            var builder = CustomModelData.customModelData();
+            if (builder != null)
+                item.setData(DataComponentTypes.CUSTOM_MODEL_DATA, builder.addFloat(data).build());
+        }
+
+
+        return item;
     }
 
     private static ItemStack getCreationItem(CrashCoinFlip crashCoinFlip) {
 
         String matName = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.material");
         String name = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.displayname");
-        String item_model = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.item-model");
+        String item_model = crashCoinFlip.getMessages().getData().getString("gui.items.create-item.item-model", "coinflip");
         List<String> lore = crashCoinFlip.getMessages().getData().getStringList("gui.items.create-item.lore");
+        float data = crashCoinFlip.getMessages().getData().getInt("gui.items.custom-model-data");
 
-        Material material = Material.getMaterial(matName);
-        if (material == null) material = Material.EMERALD; // Fallback
 
-        ItemStack item = new ItemStack(material);
-        ItemMeta meta = item.getItemMeta();
-
-        meta.displayName(ChatFormat.format("<italic:false>" + name));
-
-        meta.lore(createLore(lore));
-        meta.setItemModel(NamespacedKey.fromString(item_model));
-
-        addCustomModelData(crashCoinFlip, item, "gui.items.create-item.custom-model-data");
-
-        item.setItemMeta(meta);
-        return item;
+        return itemCreation(Material.valueOf(matName), name, createLore(lore), NamespacedKey.fromString(item_model), data);
     }
 
     private static GuiItem createGuiItem(CrashCoinFlip crashCoinFlip, OfflinePlayer player) {
@@ -245,33 +239,33 @@ public class InvManager {
 
     private static ItemStack setupItem(CrashCoinFlip crashCoinFlip, OfflinePlayer player) {
         Material material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.coinflip.material"));
-        ItemStack item = new ItemStack(material, 1);
 
         String display_name = crashCoinFlip.getMessages().getData().getString("gui.items.coinflip.displayname", player.getName())
                 .replace("{player}", player.getName());
-        String item_model = crashCoinFlip.getMessages().getData().getString("gui.items.coinflip.item-model", "");
+        NamespacedKey key = NamespacedKey.fromString(crashCoinFlip.getMessages().getData().getString("gui.items.coinflip.item-model", "coinflip"));
         List<String> lore = crashCoinFlip.getMessages().getData().getStringList("gui.items.coinflip.lore");
+        float modelData = crashCoinFlip.getMessages().getData().getInt("gui.items.coinflip.model-data");
 
         String amount = CrashCoinFlip.getEconomy().format(FlipsManager.getPendingFlipAmount(player.getUniqueId()));
         List<Component> lore_components = lore.stream()
-                    .map(line -> ChatFormat.format("<italic:false>" + line
-                            .replace("{player}", player.getName())
-                            .replace("{amount}", amount)))
-                    .toList();
+                .map(line -> ChatFormat.format("<italic:false>" + line
+                        .replace("{player}", player.getName())
+                        .replace("{amount}", amount)))
+                .toList();
 
-        addCustomModelData(crashCoinFlip, item, "gui.items.coinflip.custom-model-data");
+
+        ItemStack item = itemCreation(material, display_name, lore_components, key, modelData);
 
         if (item.getItemMeta() instanceof SkullMeta meta) {
             meta.setOwningPlayer(player);
             meta.displayName(ChatFormat.format("<italic:false>" + display_name));
-            meta.setItemModel(NamespacedKey.fromString(item_model));
             meta.lore(lore_components);
             item.setItemMeta(meta);
+
             return item;
         } else {
             ItemMeta meta = item.getItemMeta();
             meta.displayName(ChatFormat.format("<italic:false>" + display_name));
-            meta.setItemModel(NamespacedKey.fromString(item_model));
             meta.lore(lore_components);
             item.setItemMeta(meta);
 
