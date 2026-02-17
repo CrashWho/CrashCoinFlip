@@ -44,7 +44,9 @@ public final class CrashCoinFlip extends JavaPlugin {
             return;
         }
 
-        getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, cmd -> cmd.registrar().register(new cf(this).coinFlipCommand()));
+        getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, cmd -> {
+            cmd.registrar().register(new cf(this).coinFlipCommand(), List.of("cf"));
+        });
         getServer().getPluginManager().registerEvents(new FlipsEvents(this), this);
     }
 
