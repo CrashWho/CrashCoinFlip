@@ -4,6 +4,7 @@ plugins {
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
+def pluginName = "CrashCoinFlip"
 group = 'org.crashwho'
 version = '1.0.2'
 
@@ -63,7 +64,7 @@ tasks.shadowJar {
 }
 
 processResources {
-    def props = [version: version]
+    def props = [version: version, name: pluginName]
     inputs.properties props
     filteringCharset 'UTF-8'
     filesMatching('paper-plugin.yml') {

@@ -1,5 +1,5 @@
-name: CrashCoinFlip
-version: '1.0.1'
+name: '${name}'
+version: '${version}'
 main: org.crashwho.crashCoinFlip.CrashCoinFlip
 api-version: '1.21'
 authors: [ CrashWho ]
