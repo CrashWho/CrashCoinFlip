@@ -1,11 +1,9 @@
 package org.crashwho.crashCoinFlip;
 
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
+import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.crashwho.crashCoinFlip.Commands.cf;
@@ -15,9 +13,6 @@ import org.crashwho.crashCoinFlip.Utils.Files.FileManager;
 import org.crashwho.crashCoinFlip.Utils.Inventory.InvManager;
 import org.crashwho.crashCoinFlip.Utils.Manager.FlipsManager;
 import org.crashwho.crashCoinFlip.Utils.Messages.ChatFormat;
-import revxrsal.commands.Lamp;
-import revxrsal.commands.bukkit.BukkitLamp;
-import revxrsal.commands.bukkit.actor.BukkitCommandActor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +44,7 @@ public final class CrashCoinFlip extends JavaPlugin {
             return;
         }
 
-        Lamp<BukkitCommandActor> lamp = BukkitLamp.builder(this).build();
-        lamp.register(new cf(this));
+        getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, cmd -> cmd.registrar().register(new cf(this).coinFlipCommand()));
         getServer().getPluginManager().registerEvents(new FlipsEvents(this), this);
     }
 

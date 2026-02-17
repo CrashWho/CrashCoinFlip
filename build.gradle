@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'org.crashwho'
-version = '1.0.1'
+version = '1.0.2'
 
 repositories {
     mavenCentral()
@@ -25,9 +25,6 @@ dependencies {
     }
     compileOnly 'net.dmulloy2:ProtocolLib:5.4.0'
     implementation("com.github.stefvanschie.inventoryframework:IF:0.11.6")
-    implementation 'io.github.revxrsal:lamp.common:4.0.0-rc.14'
-    implementation 'io.github.revxrsal:lamp.bukkit:4.0.0-rc.14'
-    implementation 'io.github.revxrsal:lamp.brigadier:4.0.0-rc.14'
 
 }
 
@@ -56,11 +53,6 @@ tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release.set(targetJavaVersion)
     }
-}
-
-compileJava {
-    // Preserve parameter names in the bytecode
-    options.compilerArgs += ["-parameters"]
 }
 
 tasks.shadowJar {
