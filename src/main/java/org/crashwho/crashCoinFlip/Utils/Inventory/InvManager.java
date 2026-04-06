@@ -33,15 +33,14 @@ public class InvManager {
         gui = new ChestGui(rows, title);
         gui.setOnGlobalClick(event -> event.setCancelled(true));
 
-        int start_row = crashCoinFlip.getConfig().getInt("settings.gui.start-row");
-        int start_column = crashCoinFlip.getConfig().getInt("settings.gui.start-column");
+        int starting_row = crashCoinFlip.getConfig().getInt("settings.gui.starting-index");
         int lenght = crashCoinFlip.getConfig().getInt("settings.gui.length");
         int use_row = crashCoinFlip.getConfig().getInt("settings.gui.items-row");
 
-        pane = new PaginatedPane(start_column, start_row, lenght, use_row);
+        pane = new PaginatedPane(lenght, use_row);
 
 
-        gui.addPane(pane);
+        gui.addPane(Slot.fromIndex(starting_row), pane);
         addNavigation(crashCoinFlip);
         repopulate(crashCoinFlip);
         updateGui();
@@ -49,12 +48,10 @@ public class InvManager {
 
     private static void addNavigation(CrashCoinFlip crashCoinFlip) {
 
-        int rows = crashCoinFlip.getConfig().getInt("settings.navbar-gui.rows");
-        int start_column = crashCoinFlip.getConfig().getInt("settings.navbar-gui.start-column");
         int lenght = crashCoinFlip.getConfig().getInt("settings.navbar-gui.length");
         int use_row = crashCoinFlip.getConfig().getInt("settings.navbar-gui.items-row");
 
-        StaticPane navPane = new StaticPane(start_column, rows, lenght, use_row);
+        StaticPane navPane = new StaticPane(lenght, use_row);
 
         Material back_material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.back.material"));
         Material next_material = Material.valueOf(crashCoinFlip.getMessages().getData().getString("gui.items.next.material"));
@@ -106,7 +103,9 @@ public class InvManager {
             }
         }), Slot.fromIndex(nextSlot));
 
-        gui.addPane(navPane);
+        int starting_row = crashCoinFlip.getConfig().getInt("settings.navbar-gui.staring-index");
+
+        gui.addPane(Slot.fromIndex(starting_row), navPane);
     }
 
     public static void openGui(Player player) {
